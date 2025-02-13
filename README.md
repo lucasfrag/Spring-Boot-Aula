@@ -14,7 +14,7 @@ O projeto foi criado utilizando o [Spring Initialzr](https://start.spring.io) co
 
 ## Configuração do Ambiente ⚙️
 
-### 1. Pré-requisitos
+### 1. Pré-requisitos ✅
 Certifique-se de ter instalado em seu sistema:
 - [Java 23](https://www.oracle.com/br/java/technologies/downloads/) (ou superior)
 - [Apache NetBeans IDE](https://netbeans.apache.org/front/main/index.html)
