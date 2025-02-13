@@ -1,18 +1,25 @@
-# 🚀 Spring Boot Web API com MySQL
+# 🚀 Spring Boot Exemplo: Web API com MySQL
 
-Este repositório contém um projeto desenvolvido com Spring Boot, com o objetivo de demonstrar como construir uma aplicação web com persistência de dados em MySQL e exposição de uma API REST. Este projeto é ideal para iniciantes que desejam aprender os conceitos básicos do Spring Boot e sua integração com banco de dados.
+Este repositório contém um projeto de biblioteca virtual desenvolvido com Spring Boot, com o objetivo de demonstrar como construir uma aplicação web com persistência de dados em MySQL e exposição de uma API REST. Este projeto é ideal para iniciantes que desejam aprender os conceitos básicos do Spring Boot e sua integração com banco de dados.
 
 ## Tecnologias Utilizadas 🖥️
-Esse projeto fui construído utilizando **Java 23** e **Apache NetBeans IDE**.
+O projeto foi criado utilizando o [Spring Initialzr](https://start.spring.io) com as seguintes dependências:
+
+- MySQL Driver
+- Spring Web
+- Spring Data JPA
+- Validation
+- Lombok
+- Thymeleaf
 
 ## Configuração do Ambiente ⚙️
 
 ### 1. Pré-requisitos
 Certifique-se de ter instalado em seu sistema:
-- Java 23 (ou superior)
-- Apache NetBeans IDE
-- MySQL Server
-- Postman (ou outra ferramenta para testes de API)
+- [Java 23](https://www.oracle.com/br/java/technologies/downloads/) (ou superior)
+- [Apache NetBeans IDE](https://netbeans.apache.org/front/main/index.html)
+- [MySQL Server](https://www.mysql.com)
+- [Postman](https://www.postman.com) (ou outra ferramenta para testes de API)
 
 ### 2. Configuração do Banco de Dados 🛢️
 Crie um banco de dados no MySQL com o seguinte comando:
@@ -39,10 +46,6 @@ A API contém endpoints CRUD para cada entidade criada (por exemplo, `livro`).
 | PUT    | `/livro/{id}` | Atualiza um livro existente |
 | DELETE | `/livro/{id}` | Remove um livro pelo ID    |
 
-Para testar, você pode usar o Postman ou um cliente HTTP como `curl`:
-```bash
-curl -X GET http://localhost:8080/livro
-```
 
 ---
 📌 **Dica**: Caso queira explorar mais funcionalidades do Spring Boot, recomendo consultar a [documentação oficial](https://spring.io/projects/spring-boot).
