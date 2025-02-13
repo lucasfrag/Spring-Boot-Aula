@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Cadastro de livros</h1>
+        
+        <form method="post" th:action="@{/cadastro}">
+            <p>Nome: <input type="text" th:field="${livro.nome}"></p>
+            <p>Autor: <input type="text" th:field="${livro.autor}"></p>
+            
+            <button type="submit">Salvar</button>
+        </form>
+    </body>
+</html>
