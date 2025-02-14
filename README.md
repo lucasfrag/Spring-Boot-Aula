@@ -2,6 +2,10 @@
 
 Este repositório contém um projeto de biblioteca virtual desenvolvido com Spring Boot, com o objetivo de demonstrar como construir uma aplicação web com persistência de dados em MySQL e exposição de uma API REST. Este projeto é ideal para iniciantes que desejam aprender os conceitos básicos do Spring Boot e sua integração com banco de dados.
 
+## ⚠️ ATENÇÃO!!!
+**Este projeto foi desenvolvido como parte de uma atividade educacional e tem fins exclusivamente didáticos.** Não é recomendado utilizá-lo em ambientes de produção.
+
+
 ## Tecnologias Utilizadas 🖥️
 O projeto foi criado utilizando o [Spring Initialzr](https://start.spring.io) com as seguintes dependências:
 
