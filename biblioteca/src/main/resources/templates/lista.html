@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head th:insert="head.html">
+        
     </head>
     <body>
+        
+        <cabecalho th:insert="cabecalho.html" />
         <h1>Lista de livros</h1>
         
         <table>
@@ -14,6 +14,7 @@
                 <th>Nome</th>
                 <th>Autor</th>
                 <th>Disponível</th>
+                <th>Ações</th>
             </thead>
             <tbody>
                 <tr th:each="livro: ${livros}">
@@ -21,6 +22,11 @@
                     <td th:text="${livro.nome}"></td> 
                     <td th:text="${livro.autor}"></td> 
                     <td th:text="${livro.disponivel}"></td> 
+                    <td>
+                        <a th:href="@{'/livros/detalhes/'} + ${livro.id}">+ Detalhes</a>
+                        <a th:href="@{'/livros/alterar/'} + ${livro.id}">Alterar</a>
+                        <a th:href="@{'/livros/excluir/'} + ${livro.id}">Excluir</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

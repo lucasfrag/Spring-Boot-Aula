@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head th:insert="head.html">
+        
+    </head>
+    <body>
+        
+        <cabecalho th:insert="cabecalho.html" />
+        <h1>Detalhes do livro</h1>
+        
+        <p>ID: <span th:text="${livro.id}"></p>
+        <p>Nome: <span th:text="${livro.nome}"></p>
+        <p>Autor: <span th:text="${livro.autor}"></p>
+        <p>Disponível: <span th:text="${livro.disponivel}"></p>
+
+        <h2>Comentários</h2>
+        
+        <!-- Adicionar um novo comentário -->
+        <form th:action="@{'/comentarios/adicionar/' + ${livro.id}}" method="post">
+            <label>Novo comentário:</label>
+            <input type="text" id="texto" name="texto" required>
+            <button type="submit">Adicionar</button>
+        </form>
+        
+        <!-- Listagem dos comentários -->
+        <ul>
+            <li th:each="comentario : ${comentarios}">
+                <span th:text="${comentario.texto}"></span>
+                <!-- TO DO: editar e remover -->
+            </li>
+        </ul>
+        
+    </body>
+</html>

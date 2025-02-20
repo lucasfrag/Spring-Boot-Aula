@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head th:insert="head.html">
+        
     </head>
     <body>
+        
+        <cabecalho th:insert="cabecalho.html" />
         <h1>Livro cadastrado com sucesso!</h1>
         
+        <p>ID: <span th:text="${livro.id}"></p>
         <p>Nome: <span th:text="${livro.nome}"></p>
         <p>Autor: <span th:text="${livro.autor}"></p>
         <p>Disponível: <span th:text="${livro.disponivel}"></p>

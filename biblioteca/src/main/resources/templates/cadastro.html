@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head th:insert="head.html">
+        
     </head>
     <body>
+        
+        <cabecalho th:insert="cabecalho.html" />
         <h1>Cadastro de livros</h1>
         
-        <form method="post" th:action="@{/cadastro}">
+        <form method="post" th:action="@{/livros/gravar}">
+            <p>ID: <input type="hidden" th:field="${livro.id}"></p>
             <p>Nome: <input type="text" th:field="${livro.nome}"></p>
             <p>Autor: <input type="text" th:field="${livro.autor}"></p>
+            
+            <p>
+                Disponível:
+                <input type="checkbox" th:field="${livro.disponivel}">
+            </p>
             
             <button type="submit">Salvar</button>
         </form>
