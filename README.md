@@ -15,7 +15,7 @@ O projeto foi criado utilizando o [Spring Initialzr](https://start.spring.io) co
 - **MySQL Driver** (Conexão com banco de dados MySQL)
 - **Spring Web** (Criação de APIs REST)
 - **Thymeleaf** (Template engine para renderização de páginas HTML dinâmicas)
-- **Lombok** (Redução de código boilerplate com anotações como @Data, @Getter, @Setter)
+- **Lombok** (Redução de código boilerplate com anotações como *@Data*, *@Getter*, *@Setter*)
 
 ## ⚙️ Configuração do Ambiente 
 
