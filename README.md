@@ -5,7 +5,7 @@ Este repositório contém um projeto de biblioteca virtual desenvolvido com Spri
 Na pasta **biblioteca**, temos o projeto Spring Boot com persistência no banco de dados e uma API REST separada para atender requisições externas. Esse projeto foi desenvolvido no **Apache NetBeans IDE** para exemplificar como realizar o CRUD completo em um projeto Java na web e como criar uma API REST. Os endpoints foram inicialmente testados no Postman.
 
 ### 📁 Projeto Web-Client
-Já a pasta **web-client** possui um projeto separado constrído para exemplificar como uma página externa se comunica com APIs REST através das requisições *GET*, *POST*, *PUT* e *DELETE*. Esse projeto foi construído usando o **Visual Studio Code**.
+Já a pasta **web-client** possui um projeto separado construído para exemplificar como uma página externa se comunica com APIs REST através das requisições *GET*, *POST*, *PUT* e *DELETE*. Esse projeto foi construído usando o **Visual Studio Code**.
 
 <img src="https://github.com/lucasfrag/Spring-Boot-Exemplo/blob/main/web-client/preview.png">
 
