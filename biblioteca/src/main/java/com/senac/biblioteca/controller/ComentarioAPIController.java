@@ -44,16 +44,19 @@ public class ComentarioAPIController {
     // Endpoint para atualizar um comentário existente
     @PutMapping("/{id}")
     public Comentario atualizarComentario(@PathVariable int id, @RequestBody Comentario comentarioAtualizado) {
-        // Busca o comentário pelo ID e atualiza seu texto caso seja encontrado
-        return comentarioService.listarPorLivro(id) // Busca os comentários do livro
-                .stream()
-                .filter(c -> c.getId() == id) // Filtra pelo ID do comentário desejado
-                .findFirst() // Obtém o primeiro correspondente
-                .map(comentario -> { 
-                    comentario.setTexto(comentarioAtualizado.getTexto()); // Atualiza o texto
-                    return comentarioService.salvar(comentario); // Salva a atualização
-                })
-                .orElseThrow(() -> new RuntimeException("Comentário não encontrado")); // Lança exceção caso não encontre
+        // Busca o comentário pelo ID
+        Comentario comentario = comentarioService.buscarPorId(id);
+
+        // Verifica se o comentário foi encontrado
+        if (comentario == null) {
+            throw new RuntimeException("Comentário não encontrado");
+        }
+
+        // Atualiza o texto do comentário
+        comentario.setTexto(comentarioAtualizado.getTexto());
+
+        // Salva e retorna o comentário atualizado
+        return comentarioService.salvar(comentario);
     }
     
     // Endpoint para deletar um comentário pelo ID
