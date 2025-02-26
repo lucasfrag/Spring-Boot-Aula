@@ -1,6 +1,7 @@
 package com.senac.biblioteca.model;
 
 // Importações necessárias para a persistência da entidade
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,6 +37,7 @@ public class Livro {
     
     // Relacionamento um-para-muitos: um livro pode ter vários comentários
     @OneToMany(mappedBy="livro", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // Indica que esta é a parte não gerenciada do relacionamento e evita loops nas requisições
     private List<Comentario> comentarios = new ArrayList<>();
     
     // Construtor padrão necessário para JPA
