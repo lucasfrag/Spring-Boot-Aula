@@ -1,9 +1,17 @@
 # 🚀 Spring Boot Exemplo: Web API com MySQL
-
 Este repositório contém um projeto de biblioteca virtual desenvolvido com Spring Boot, com o objetivo de demonstrar como construir uma aplicação web com persistência de dados em MySQL e exposição de uma API REST. Este projeto é ideal para iniciantes que desejam aprender os conceitos básicos do Spring Boot e sua integração com banco de dados.
 
+### 📁 Projeto Biblioteca
+Na pasta **biblioteca**, temos o projeto Spring Boot com persistência no banco de dados e uma API REST separada para atender requisições externas. Esse projeto foi desenvolvido no **Apache NetBeans IDE** para exemplificar como realizar o CRUD completo em um projeto Java na web e como criar uma API REST. Os endpoints foram inicialmente testados no Postman.
 
-### ⚠️ ATENÇÃO!!!
+### 📁 Projeto Web-Client
+Já a pasta **web-client** possui um projeto separado constrído para exemplificar como uma página externa se comunica com APIs REST através das requisições *GET*, *POST*, *PUT* e *DELETE*. Esse projeto foi construído usando o **Visual Studio Code**.
+
+<img src="https://github.com/lucasfrag/Spring-Boot-Exemplo/blob/main/web-client/preview.png">
+
+
+
+### ⚠️ ATENÇÃO!!! 
 **Este projeto foi desenvolvido como parte de uma atividade educacional e tem fins exclusivamente didáticos.** Não é recomendado utilizá-lo em ambientes de produção.
 
 
