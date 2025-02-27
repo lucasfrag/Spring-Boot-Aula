@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head th:insert="head.html">
-        
+    <head>
+        <title>Biblioteca Virtual</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+    <body th:style="${css}">
         
         <cabecalho th:insert="cabecalho.html" />
 
         <center>
             <h1>Seja bem-vindo a Biblioteca Virtual</h1>
+            <p>O tema atual da página é: <b th:text="${css}"></b> </p>
+            
+            <p>
+                <a href="/preferencias">Configurações da página</a>
+            </p>
         </center>
     </body>
 </html>

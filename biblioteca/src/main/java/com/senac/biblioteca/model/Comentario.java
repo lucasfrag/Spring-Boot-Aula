@@ -32,7 +32,7 @@ public class Comentario {
     // Define um relacionamento muitos-para-um com a entidade Livro
     @ManyToOne
     @JoinColumn(name = "livro_id") // Especifica a chave estrangeira que relaciona um comentário a um livro
-    @JsonBackReference // Indica que esta é a parte não gerenciada do relacionamento e evita loops nas requisições
+    @JsonBackReference // Evita loops infinitos ao serializar objetos JSON que possuem relações bidirecionais
     private Livro livro;
     
     // Construtor padrão necessário para JPA

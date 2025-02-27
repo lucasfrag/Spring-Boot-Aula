@@ -1,13 +1,13 @@
 package com.senac.biblioteca.controller;
 
 // Importações necessárias para manipulação dos modelos e serviços
-import com.senac.biblioteca.model.ListaLivro;
 import com.senac.biblioteca.model.Livro;
 import com.senac.biblioteca.service.ComentarioService;
 import com.senac.biblioteca.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,16 +28,12 @@ public class LivroController {
     @Autowired
     private ComentarioService comentarioService;
     
-    // Mapeia a rota raiz para retornar a página inicial
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
     
     // Exibe o formulário para cadastrar um novo livro
     @GetMapping("/cadastro")
-    public String exibirFormulario(Model model) {
+    public String exibirFormulario(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model) {
         model.addAttribute("livro", new Livro());
+        model.addAttribute("css", tema);
         return "cadastro";
     }
     
@@ -52,27 +48,29 @@ public class LivroController {
     
     // Lista todos os livros cadastrados e os exibe na página "lista"
     @GetMapping("/lista")
-    public String lista(Model model) {
+    public String lista(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema,Model model) {
         model.addAttribute("livros", livroService.listarTodos());
+        model.addAttribute("css", tema);
         return "lista";
     }
     
     // Exibe os detalhes de um livro específico, incluindo seus comentários
     @GetMapping("/detalhes/{id}")
-    public String exibirDetalhes(@PathVariable int id, Model model) {        
+    public String exibirDetalhes(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema,@PathVariable int id, Model model) {        
         Livro livro = livroService.buscarPorId(id);
         
         // Adiciona o livro e seus comentários ao modelo para exibição na página
         model.addAttribute("livro", livro);
         model.addAttribute("comentarios", comentarioService.listarPorLivro(id));
-        
+        model.addAttribute("css", tema);
         return "detalhes";
     }
     
     // Carrega os dados de um livro para alteração
     @GetMapping("/alterar/{id}")
-    public String alterarLivro(@PathVariable int id, Model model) {
+    public String alterarLivro(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema,@PathVariable int id, Model model) {
         model.addAttribute("livro", livroService.buscarPorId(id));
+        model.addAttribute("css", tema);
         return "cadastro";
     }
     

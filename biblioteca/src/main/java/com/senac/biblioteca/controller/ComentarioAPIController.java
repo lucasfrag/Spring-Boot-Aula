@@ -44,18 +44,15 @@ public class ComentarioAPIController {
     // Endpoint para atualizar um comentário existente
     @PutMapping("/{id}")
     public Comentario atualizarComentario(@PathVariable int id, @RequestBody Comentario comentarioAtualizado) {
-        // Busca o comentário pelo ID
+        // Busca o comentário pelo ID e atualiza seu texto caso seja encontrado
         Comentario comentario = comentarioService.buscarPorId(id);
-
-        // Verifica se o comentário foi encontrado
+        
         if (comentario == null) {
             throw new RuntimeException("Comentário não encontrado");
         }
-
-        // Atualiza o texto do comentário
+        
         comentario.setTexto(comentarioAtualizado.getTexto());
-
-        // Salva e retorna o comentário atualizado
+        
         return comentarioService.salvar(comentario);
     }
     

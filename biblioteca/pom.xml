@@ -12,6 +12,8 @@
 	<artifactId>biblioteca</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>biblioteca</name>
+        <!-- para gerar no formato .war, descomente o trecho abaixo, exclua a pasta target e faça "Clean and Build" -->
+        <!--<packaging>war</packaging>-->
 	<description>Projeto exemplo de Biblioteca Virtual.</description>
 	<url/>
 	<licenses>
@@ -55,7 +57,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-                        <version>1.18.36</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
@@ -75,7 +76,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-                                                        <version>1.18.36</version>
+                                                        
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -88,7 +89,6 @@
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-                                                        <version>1.18.36</version>
 						</exclude>
 					</excludes>
 				</configuration>

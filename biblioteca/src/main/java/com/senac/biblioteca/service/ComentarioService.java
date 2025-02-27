@@ -30,8 +30,7 @@ public class ComentarioService {
         comentarioRepository.deleteById(id);
     }
     
-    // Método para buscar um livro pelo ID, retornando null caso não seja encontrado
     public Comentario buscarPorId(int id) {
         return comentarioRepository.findById(id).orElse(null);
-    }      
+    }
 }
