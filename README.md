@@ -1,4 +1,4 @@
-# 🚀 Spring Boot Exemplo: Web API com MySQL
+# 🚀 Aula - Spring Boot: Web API com MySQL
 Este repositório contém um projeto de biblioteca virtual desenvolvido com Spring Boot, com o objetivo de demonstrar como construir uma aplicação web com persistência de dados em MySQL e exposição de uma API REST. Este projeto é ideal para iniciantes que desejam aprender os conceitos básicos do Spring Boot e sua integração com banco de dados.
 
 ### 📁 Projeto Biblioteca
