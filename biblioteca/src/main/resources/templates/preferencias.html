@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Biblioteca Virtual - Preferências</title>
+        <title>Biblioteca Virtual</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
+        <link href="./css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <h1>Preferências do site</h1>
-        <form th:action="@{/preferencias}" method="POST">
-            <p>
-                <label for="estilo">Seu esquema de cor é:</label>
-                <select name="estilo" id="estilo">
-                    <option value="claro">Tema Claro</option>
-                    <option value="escuro">Tema Escuro</option>
-                </select>
-            </p>
-            <p>
-                <input type="submit" value="Salvar">
-            </p>
-        </form>
+        <center>
+            <a href="/">Página Inicial</a>
+            <a href="/livro/cadastro">Cadastrar novo livro</a>
+            <a href="/livro/lista">Exibir todos os livros cadastrados</a>
+            
+            <h1>Preferências do site</h1>
+            
+            <form th:action="@{/preferencias}" method="POST">
+                <p>
+                    <label for="estilo">Seu esquema de cor é:</label>
+                    <select name="estilo" id="estilo">
+                        <option value="claro">Tema Claro</option>
+                        <option value="escuro">Tema Escuro</option>
+                    </select>
+                </p>
+                <p>
+                    <input type="submit" value="Salvar">
+                </p>
+            </form>
+            
+        </center>
     </body>
 </html>

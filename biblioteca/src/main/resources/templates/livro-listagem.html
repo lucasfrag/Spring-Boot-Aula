@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Biblioteca Virtual</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <center>
+            <a href="/">Página Inicial</a>
+            <a href="/livro/cadastro">Cadastrar novo livro</a>
+            <a href="/livro/lista">Exibir todos os livros cadastrados</a>
+             
+            <h1>Lista de livros</h1>
+            
+        </center>
+        
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Ações</th>
+            </thead>
+            
+            <tbody>
+                <tr th:each="livro: ${livros}">
+                    <td th:text="${livro.id}"></td>
+                    <td th:text="${livro.titulo}"></td>
+                    <td th:text="${livro.autor}"></td>
+                    <td th:text="${livro.ano}"></td>
+                    <td>
+                        <a th:href="@{'/livro/detalhes/'} + ${livro.id}">+ Detalhes</a>
+                        <a th:href="@{'/livro/alterar/'} + ${livro.id}">Alterar</a>
+                        <a th:href="@{'/livro/excluir/'} + ${livro.id}">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

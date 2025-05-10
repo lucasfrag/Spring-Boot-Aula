@@ -7,31 +7,40 @@
         <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        
-        <cabecalho th:insert="cabecalho.html" />
-        <h1>Detalhes do livro</h1>
-        
-        <p>ID: <span th:text="${livro.id}"></p>
-        <p>Nome: <span th:text="${livro.nome}"></p>
-        <p>Autor: <span th:text="${livro.autor}"></p>
-        <p>Disponível: <span th:text="${livro.disponivel}"></p>
-
-        <h2>Comentários</h2>
-        
-        <!-- Adicionar um novo comentário -->
-        <form th:action="@{'/comentarios/adicionar/' + ${livro.id}}" method="post">
+        <center>
+            <a href="/">Página Inicial</a>
+            <a href="/livro/cadastro">Cadastrar novo livro</a>
+            <a href="/livro/lista">Exibir todos os livros cadastrados</a>
+            
+            <h1>Detalhes do livro</h1>
+            
+        </center>
+    
+    <p>ID: <span th:text="${livro.id}"></p>
+    <p>Titulo <span th:text="${livro.titulo}"></p>
+    <p>Autor: <span th:text="${livro.autor}"></p>
+    <p>Ano: <span th:text="${livro.ano}"></p>
+    
+    <h2>Comentários</h2>
+    <form th:action="@{'/comentario/gravar/' + ${livro.id}}" method="post">
+        <p>
             <label>Novo comentário:</label>
             <input type="text" id="texto" name="texto" required>
-            <button type="submit">Adicionar</button>
-        </form>
-        
-        <!-- Listagem dos comentários -->
-        <ul>
-            <li th:each="comentario : ${comentarios}">
-                <span th:text="${comentario.texto}"></span>
-                <!-- TO DO: editar e remover -->
-            </li>
-        </ul>
-        
+        </p>
+        <p>
+        <label>Nota:</label>
+        <input type="number" id="nota" name="nota" required>
+        </p>
+        <button type="submit">Adicionar</button>
+    </form>
+    
+    <ul>
+        <li th:each="comentario : ${comentarios}">
+            Comentário: <span th:text="${comentario.texto}"></span><br>
+            Nota: <span th:text="${comentario.nota}"></span>
+            <a th:href="@{'/comentario/excluir/'} + ${comentario.id}">Excluir</a>
+        </li>
+    </ul>
+    
     </body>
 </html>

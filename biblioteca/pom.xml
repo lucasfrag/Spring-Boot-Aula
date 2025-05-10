@@ -5,16 +5,15 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.2</version>
+		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.senac</groupId>
 	<artifactId>biblioteca</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+        <packaging>jar</packaging>
 	<name>biblioteca</name>
-        <!-- para gerar no formato .war, descomente o trecho abaixo, exclua a pasta target e faça "Clean and Build" -->
-        <!--<packaging>war</packaging>-->
-	<description>Projeto exemplo de Biblioteca Virtual.</description>
+	<description>Projeto de biblioteca criado para exemplificar o uso do Spring.</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -29,7 +28,8 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>23</java.version>
+		<java.version>24</java.version>
+	 <maven.compiler.release>23</maven.compiler.release>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -39,10 +39,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,6 +53,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+                        <version>1.18.36</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
@@ -76,7 +73,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-                                                        
+                                                        <version>1.18.36</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -89,6 +86,7 @@
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+                                                        <version>1.18.36</version>
 						</exclude>
 					</excludes>
 				</configuration>

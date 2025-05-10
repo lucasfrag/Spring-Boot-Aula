@@ -7,19 +7,20 @@
         <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        
-        <cabecalho th:insert="cabecalho.html" />
-        <h1>Cadastro de livros</h1>
-        
-        <form method="post" th:action="@{/livros/gravar}">
-            <p>ID: <input type="hidden" th:field="${livro.id}"></p>
-            <p>Nome: <input type="text" th:field="${livro.nome}"></p>
-            <p>Autor: <input type="text" th:field="${livro.autor}"></p>
+        <center>
+            <a href="/">Página Inicial</a>
+            <a href="/livro/cadastro">Cadastrar novo livro</a>
+            <a href="/livro/lista">Exibir todos os livros cadastrados</a>
             
-            <p>
-                Disponível:
-                <input type="checkbox" th:field="${livro.disponivel}">
-            </p>
+            <h1>Cadastro de livros</h1>
+            
+        </center>
+                
+        <form method="post" th:action="@{/livro/gravar}">
+            <p>ID: <input type="hidden" th:field="${livro.id}"></p>
+            <p>Titulo: <input type="text" th:field="${livro.titulo}"></p>
+            <p>Autor: <input type="text" th:field="${livro.autor}"></p>
+            <p>Ano: <input type="number" th:field="${livro.ano}"></p>
             
             <button type="submit">Salvar</button>
         </form>

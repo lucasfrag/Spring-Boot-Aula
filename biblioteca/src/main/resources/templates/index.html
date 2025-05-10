@@ -5,14 +5,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link th:href="@{/css/}+${css}+'.css'" rel="stylesheet" type="text/css" />
+        <link href="./css/style.css" rel="stylesheet" type="text/css" />
     </head>
-    <body th:style="${css}">
-        
-        <cabecalho th:insert="cabecalho.html" />
-
+    <body>
         <center>
+            <a href="/">Página Inicial</a>
+            <a href="/livro/cadastro">Cadastrar novo livro</a>
+            <a href="/livro/lista">Exibir todos os livros cadastrados</a>
+            
             <h1>Seja bem-vindo a Biblioteca Virtual</h1>
-            <p>O tema atual da página é: <b th:text="${css}"></b> </p>
+            <p>O tema atual da página é: <b th:text="${css}"></b>.</p>
             
             <p>
                 <a href="/preferencias">Configurações da página</a>

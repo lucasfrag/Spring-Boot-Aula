@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Informações sobre o livro</h3>
+            <a href="listagem.html" class="btn btn-primary">Ver livros</a>
+        </div>
+
+        <div id="capa" class="mb-3"></div>
+        
+        <p>ID: <span id="id"></span></p>
+        <p>Titulo: <span id="titulo"></span></p>
+        <p>Autor: <span id="autor"></span></p>
+        <p>Ano: <span id="ano"></span></p>
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Notas e avaliações</h3>
+        </div>
+
+        <form id="formComentario" class="mb-3">
+            <div class="mb-3">
+                <input id="nota" class="form-control" placeholder="Nota (de 0 a 10)">
+            </div>
+            <div class="mb-3">
+                <textarea id="texto" class="form-control" placeholder="Comentários..."></textarea>
+            </div>
+            <button class="btn btn-primary">Salvar comentário</button>
+        </form>
+        
+
+        <div id="comentarios" class="list-group"></div>
+    </div>
+    <script>
+        // Pega o ID da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+
+        // Carrega os dados do livro
+        fetch(`http://localhost:8080/api/livro/${id}`)
+        .then(response => response.json())
+        .then(livro => {
+            document.getElementById('id').innerHTML = livro.id;
+            document.getElementById('titulo').innerHTML = livro.titulo ;
+            document.getElementById('autor').innerHTML = livro.autor;
+            document.getElementById('ano').innerHTML = livro.ano;
+
+            if (livro.capa) {
+                document.getElementById('capa').innerHTML= `<img id="capa" src="${livro.capa}" height="200">`;
+            }
+
+            console.log(livro.comentarios)
+
+            const lista = document.getElementById("comentarios");
+            
+
+            lista.innerHTML = livro.comentarios.map(comentario => `
+                <div class="list-group-item">    
+                    <div class=" justify-content-between">
+                        <h6>Comentário ${comentario.id}</h6>
+                        <p>${'⭐'.repeat(comentario.nota || 0)}</p>
+                        <p>Texto do Comentário: ${comentario.texto}</p>
+
+                        <button onclick="excluirComentario(${comentario.id})" class="btn btn-danger">Excluir</button>
+                    </div>
+                </div>
+                
+            `).join("");
+            
+        })
+        .catch(error => console.error("Erro ao carregar livro:", error));
+
+
+        document.getElementById("formComentario").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const novoComentario = {
+                nota: document.getElementById("nota").value,
+                texto: document.getElementById("texto").value,
+                livro: {
+                    id: urlParams.get('id')
+                }
+            };
+            const id = urlParams.get('id');
+
+            fetch(`http://localhost:8080/api/comentario`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(novoComentario)
+            })
+            .then(function(response) {
+                alert("Comentário criado com sucesso!");
+                location.reload();
+            })
+            .catch(function(error) {
+                console.error("Error: ", error);
+                alert("Erro ao criar comentário.");
+            });
+        });
+
+        
+        function excluirComentario(id) {
+            if(confirm("Excluir este comentário?")) {
+                fetch(`http://localhost:8080/api/comentario/${id}`, {
+                    method: "DELETE"
+                })
+                .then(() => location.reload())
+                .catch(error => console.error("Erro:", error));
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
