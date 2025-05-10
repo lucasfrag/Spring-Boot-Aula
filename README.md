@@ -4,7 +4,7 @@ Este repositório contém um projeto de biblioteca virtual desenvolvido com Spri
 ### 📁 Projeto Biblioteca
 Na pasta **biblioteca**, temos o projeto Spring Boot com persistência no banco de dados e uma API REST separada para atender requisições externas. Esse projeto foi desenvolvido no **Apache NetBeans IDE** utilizando a arquitetura MVC para exemplificar como realizar o CRUD completo em um projeto Java na web e como criar uma API REST. Os endpoints foram inicialmente testados no Postman.
 
-### 📁 Projeto Web-Client
+### 📁 Projeto Web Client
 Já a pasta **web-client** possui um projeto separado construído para exemplificar como uma página externa se comunica com APIs REST através das requisições *GET*, *POST*, *PUT* e *DELETE*. Esse projeto foi construído usando o **Visual Studio Code**.
 
 <img src="https://github.com/lucasfrag/Spring-Boot-Exemplo/blob/main/web-client/preview.png">
@@ -53,19 +53,19 @@ A API REST implementa operações CRUD para as entidades **Livro** e **Comentár
 ### **Endpoints para Livros** 📚
 | Método | Endpoint | Descrição |
 |---------|----------|-------------|
-| GET | `/api/livros` | Lista todos os livros |
-| GET | `/api/livros/{id}` | Obtém um livro pelo ID |
-| POST | `/api/livros` | Adiciona um novo livro |
-| PUT | `/api/livros/{id}` | Atualiza um livro existente |
-| DELETE | `/api/livros/{id}` | Remove um livro pelo ID |
+| GET | `/api/livro` | Lista todos os livros |
+| GET | `/api/livro/{id}` | Obtém um livro pelo ID |
+| POST | `/api/livro` | Adiciona um novo livro |
+| PUT | `/api/livro/{id}` | Atualiza um livro existente |
+| DELETE | `/api/livro/{id}` | Remove um livro pelo ID |
 
 ### **Endpoints para Comentários** 💬
 | Método | Endpoint | Descrição |
 |---------|----------|-------------|
-| GET | `/api/comentarios/livro/{id}` | Lista todos os comentários de um livro |
-| POST | `/api/comentarios` | Adiciona um novo comentário |
-| PUT | `/api/comentarios/{id}` | Atualiza um comentário existente |
-| DELETE | `/api/comentarios/{id}` | Remove um comentário pelo ID |
+| GET | `/api/comentario/livro/{id}` | Lista todos os comentários de um livro |
+| POST | `/api/comentario` | Adiciona um novo comentário |
+| PUT | `/api/comentario/{id}` | Atualiza um comentário existente |
+| DELETE | `/api/comentario/{id}` | Remove um comentário pelo ID |
 
 
 ---
